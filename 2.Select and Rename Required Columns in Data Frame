@@ -1,0 +1,8 @@
+## Step 1: Read the data from location and store in DF
+
+sample_df = spark.read \
+.option("header", True) \
+.schema(sample_schema) \
+.csv("/mnt/datalake/raw/Sample.csv")
+
+
