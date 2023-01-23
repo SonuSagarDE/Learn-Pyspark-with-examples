@@ -1,0 +1,19 @@
+#### It is good practice to always create/define schema 
+
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, DoubleType
+
+sample_schema = StructType(fields=[StructField("Id", IntegerType(), False),
+                                     StructField("Ref", StringType(), True),
+                                     StructField("name", StringType(), True),
+                                     StructField("location", StringType(), True),
+                                     StructField("country", StringType(), True),
+                                     StructField("lat", DoubleType(), True),
+                                     StructField("lng", DoubleType(), True),
+                                     StructField("alt", IntegerType(), True),
+                                     StructField("url", StringType(), True)
+])
+
+sample_df = spark.read \
+.option("header", True) \
+.schema(sample_schema) \
+.csv("/mnt/datalake/raw/Sample.csv")
