@@ -1,13 +1,19 @@
+
 ## Step 1: Read the data from location and store in DF
 
-sample_df = spark.read \
-.option("header", True) \
-.schema(sample_schema) \
-.csv("/mnt/datalake/raw/Sample.csv")
+sample_df = spark.read .option("header", True) .schema(sample_schema) .csv("/mnt/datalake/raw/Sample.csv")
 
 
 ## Step 2 - Select only the required columns
 from pyspark.sql.functions import col
 Sample_selected_df = sample_df.select(col("Id"), col("Ref"), col("name"), col("location"), col("country"), col("lat"), col("lng"), col("alt"))
+
+## Step 3 - Rename the columns as required , method use: "withColumnRenamed"
+
+Sample_renamed_df = Sample_selected_df.withColumnRenamed("Id", "Loc_id") \
+.withColumnRenamed("Ref", "Loc_ref") \
+.withColumnRenamed("lat", "latitude") \
+.withColumnRenamed("lng", "longitude") \
+.withColumnRenamed("alt", "altitude") 
 
 
