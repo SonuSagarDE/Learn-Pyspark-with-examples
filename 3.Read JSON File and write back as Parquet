@@ -13,3 +13,8 @@ constructor_df = spark.read \
 from pyspark.sql.functions import col
 constructor_dropped_df = constructor_df.drop(col('url'))
 
+
+## Write back to ADLS Location
+
+constructor_final_df.write.mode("overwrite").parquet("/mnt/formula1dl/processed/constructors")
+
