@@ -1,0 +1,7 @@
+## Step 1 - Read the JSON file using the spark dataframe reader API
+
+from pyspark.sql.types import StructType, StructField, IntegerType, StringType, DateType
+name_schema = StructType(fields=[StructField("forename", StringType(), True),
+                                 StructField("surname", StringType(), True)
+  
+])
