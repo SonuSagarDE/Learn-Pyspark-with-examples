@@ -1,0 +1,14 @@
+%md
+##### Create constructors table
+* Single Line JSON
+* Simple structure
+
+DROP TABLE IF EXISTS f1_raw.constructors;
+CREATE TABLE IF NOT EXISTS f1_raw.constructors(
+constructorId INT,
+constructorRef STRING,
+name STRING,
+nationality STRING,
+url STRING)
+USING json
+OPTIONS(path "/mnt/formula1dl/raw/constructors.json")
