@@ -1,3 +1,4 @@
+## Using Pyspark SQL
 CREATE DATABASE IF NOT EXISTS f1_raw;
 
 DROP TABLE IF EXISTS f1_raw.circuits;
